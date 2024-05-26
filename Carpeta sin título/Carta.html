@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>te quiero amorr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        img {
+            width: 300px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: #ccc;
+            transform: translateX(-50%);
+        }
+
+        .event {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .event:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #333;
+            transform: translateY(-50%);
+        }
+
+        .event img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+            margin: 0 20px;
+        }
+
+        .date {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Te quiero mi amor mi cahorra !</h1>
+        <img id="foto" src="Foto1p.jpg" alt="Foto" onclick="mostrarCarta()">
+        <div id="carta" class="hidden">
+            <p>¡Hola mi vida! </p>
+            <p>Solo quiero decirte lo que significa para mí tenerte en mi vida. Eres la luz que ilumina mis días y la razón por la que mi corazón late más fuerte. Desde el día en que te conocí, supe que eras especial, y cada día a tu lado me lo confirma aún más. ❤️</p>
+            <p>Me encanta cómo haces que cada momento sea especial, y cómo tu sonrisa puede alegrar incluso el día más complicado. Eres mi compañera de aventuras, mi cómplice, mi todo. 😍</p>
+            <p>Gracias por ser la persona maravillosa que eres y por permitirme compartir mi vida contigo. Te amo más de lo que las palabras pueden expresar. 💖</p>
+            <p>Te amo mi amor</p>
+            <p>pelusin</p>
+        </div>
+        <button onclick="mostrarLineaTiempo()">paco el neuma</button>
+        <button onclick="iniciarCarrusel()">Te quiero </button>
+        <div id="lineaTiempo" class="hidden timeline">
+            <div class="event">
+                <div class="date">14 de Abril</div>
+                <img src="foto2.jpg" alt="Foto 1">
+            </div>
+            <div class="event">
+                <div class="date">16 de Abril</div>
+                <img src="foto3.jpg" alt="Foto 2">
+            </div>
+            <div class="event">
+                <div class="date">5 de Mayo</div>
+                <img src="foto4.jpg" alt="Foto 3">
+            </div>
+        </div>
+    </div>
+    <script>
+        function mostrarCarta() {
+            var carta = document.getElementById("carta");
+            carta.classList.toggle("hidden"); // Cambiar la visibilidad de la carta
+            setTimeout(function(){ carta.classList.add("hidden"); }, 13000); // Ocultar la carta después de 13 segundos
+        }
+
+        function mostrarLineaTiempo() {
+            var texto = prompt("Introduce el texto correcto para ver la línea de tiempo:");
+
+            if (texto.toLowerCase() === "pelusin" || texto.toLowerCase() === "gloss") { // Verificar si el texto es "pelusin" o "gloss"
+                // Mostrar la línea de tiempo
+                var lineaTiempo = document.getElementById("lineaTiempo");
+                lineaTiempo.classList.remove("hidden");
+                setTimeout(function(){ lineaTiempo.classList.add("hidden"); }, 10000); // Ocultar la línea de tiempo después de 10 segundos
+                window.location.hash = "#lineaTiempo"; // Asegurar que la página se desplace a la línea de tiempo
+            } else {
+                alert("Texto incorrecto. Por favor, inténtalo de nuevo.");
+            }
+        }
+
+        function iniciarCarrusel() {
+            var imagenes = ["f1.jpg", "f2.jpg", "f3.jpg", "f4.jpg", "f5.jpeg","Foto1p.jpg"];
+            var index = 0;
+
+            function cambiarImagen() {
+                index = (index + 1) % imagenes.length;
+                document.getElementById("foto").src = imagenes[index];
+            }
+
+            setInterval(cambiarImagen, 4000); // Cambiar la imagen cada 3 segundos
+        }
+        window.onload = function() {
+            alert("Te quiero mucho, mi niña ❤️\n\nBusca por la página"); // Mensaje de alerta al cargar la página
+        };
+    </script>
+</body>
+</html>
